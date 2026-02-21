@@ -1,0 +1,17 @@
+.scan-animation {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+    box-shadow: 0 0 20px var(--primary-color);
+    z-index: 10;
+    top: 0;
+    animation: scanMove 2.5s linear infinite;
+}
+
+@keyframes scanMove {
+    0% { top: 0%; }
+    50% { top: 100%; }
+    100% { top: 0%; }
+}
