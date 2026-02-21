@@ -1,0 +1,49 @@
+<section class="container" style="margin-bottom: 80px;">
+    <div class="weather-interactive-card" style="border-color: var(--primary-color);">
+        <div class="weather-card-inner">
+            <div class="weather-header">
+                <h2 class="section-title" style="font-size: 1.8rem; margin: 0;">
+                    Project #6: <span class="highlight">VisionScan AI</span>
+                </h2>
+                <div class="status-badge">
+                    <span class="pulse-dot"></span> <span id="vision-status">Neural Core Loading...</span>
+                </div>
+            </div>
+
+            <div class="skycast-layout" style="display: flex; gap: 30px; flex-wrap: wrap;">
+                <div class="skycast-visual-part" style="flex: 1.5; min-width: 300px; background: #000; border-radius: 15px; position: relative; overflow: hidden; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; min-height: 350px;">
+                    <video id="vision-webcam" autoplay playsinline style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
+                    <img id="vision-preview" src="" style="width: 100%; height: 100%; object-fit: contain; display: none;">
+                    <div id="vision-placeholder" style="text-align: center; opacity: 0.5;">
+                        <i class="fas fa-eye" style="font-size: 4rem; color: var(--primary-color);"></i>
+                        <p style="font-family: 'Orbitron'; margin-top: 15px;">AWAITING SIGNAL</p>
+                    </div>
+                    <div id="vision-scanner-line" class="scan-animation"></div>
+                </div>
+
+                <div class="skycast-control-part" style="flex: 1; min-width: 250px;">
+                    <div class="weather-input-wrapper" style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="file" id="vision-upload" accept="image/*" style="display: none;">
+                        
+                        <button id="btn-webcam" class="action-button" style="background: transparent; border: 1px solid var(--primary-color); color: var(--primary-color);">
+                            <i class="fas fa-video"></i> USE LIVE CAMERA
+                        </button>
+                        
+                        <button id="btn-upload" class="action-button">
+                            <i class="fas fa-file-upload"></i> UPLOAD IMAGE
+                        </button>
+                    </div>
+
+                    <div id="vision-results" style="margin-top: 25px; padding: 20px; background: rgba(88, 166, 255, 0.05); border-radius: 12px; border: 1px solid rgba(88,166,255,0.2); display: none;">
+                        <div style="font-family: 'Orbitron'; font-size: 0.7rem; color: var(--primary-color); margin-bottom: 10px;">IDENTIFIED_OBJECT:</div>
+                        <div id="obj-name" style="font-size: 1.4rem; font-weight: bold; text-transform: uppercase;">---</div>
+                        <div style="margin-top: 10px; font-size: 0.8rem;">Confidence: <span id="obj-conf" style="color: var(--primary-color);">0%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
